@@ -1,0 +1,5 @@
+{
+    "first": "Dev",
+    "last": "Smith",
+    "full": "{{first}} {{last}}"
+  }

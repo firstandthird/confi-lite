@@ -1,0 +1,6 @@
+{
+  "port": "{{getEnv('PORT')}}",
+  "first": "Bob",
+  "last": "Smith",
+  "full": "Bob {{last}}"
+}
