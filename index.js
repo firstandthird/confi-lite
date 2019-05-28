@@ -12,7 +12,6 @@ module.exports = (path = `${__dirname}/conf`) => {
   const env = process.env.NODE_ENV || 'dev';
   const envFile = `${path}/${env}.json`;
   const defaultFile = `${path}/default.json`;
-  console.log(`Loading config from ${envFile} and ${defaultFile}`);
   let envConfig = loadConfig(envFile);
   let defaultConfig = loadConfig(defaultFile);
   const config = aug(defaultConfig, envConfig);
