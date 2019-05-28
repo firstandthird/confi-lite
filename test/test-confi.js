@@ -15,8 +15,16 @@ tap.test('loads production config', async t => {
   t.end();
 });
 
+tap.test('loads production config from param', async t => {
+  delete process.env.NODE_ENV;
+  const config = confi(`${__dirname}`, 'production');
+  t.match(config, { port: '8080', first: 'Prod', last: 'Smith', full: 'Prod Smith' });
+  t.end();
+});
+
 tap.test('fine if file does not exist', async t => {
   const config = confi('nowhere');
+  t.deepEqual(config, {});
   t.end();
 });
 

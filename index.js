@@ -7,9 +7,9 @@ const loadConfig = (fileName) => {
   if (fs.existsSync(fileName)) {
     return JSON.parse(fs.readFileSync(fileName));
   }
+  return {};
 };
-module.exports = (path = `${__dirname}/conf`) => {
-  const env = process.env.NODE_ENV || 'dev';
+module.exports = (path = `${__dirname}/conf`, env = process.env.NODE_ENV || 'dev') => {
   const envFile = `${path}/${env}.json`;
   const defaultFile = `${path}/default.json`;
   let envConfig = loadConfig(envFile);
