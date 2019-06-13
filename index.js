@@ -14,6 +14,6 @@ module.exports = (path = `${__dirname}/conf`, env = process.env.NODE_ENV || 'dev
   const defaultFile = `${path}/default.json`;
   let envConfig = loadConfig(envFile);
   let defaultConfig = loadConfig(defaultFile);
-  const config = aug(defaultConfig, envConfig);
+  const config = aug(defaultConfig, envConfig, process.env);
   return varson(config, helpers);
 };

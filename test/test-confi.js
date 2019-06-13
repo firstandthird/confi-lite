@@ -24,7 +24,7 @@ tap.test('loads production config from param', async t => {
 
 tap.test('fine if file does not exist', async t => {
   const config = confi('nowhere');
-  t.deepEqual(config, {});
+  t.match(config, process.env);
   t.end();
 });
 
