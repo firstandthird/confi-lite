@@ -22,6 +22,13 @@ tap.test('loads production config from param', async t => {
   t.end();
 });
 
+tap.test('loads baseConfig', async t => {
+  process.env.PORT = 8080;
+  const config = confi(`${__dirname}`, 'dev', { base: 1234 });
+  t.match(config, { base: 1234, port: '8080', first: 'Dev', last: 'Smith', full: 'Dev Smith' });
+  t.end();
+});
+
 tap.test('fine if file does not exist', async t => {
   const config = confi('nowhere');
   t.match(Object.keys(config), ['env']);
